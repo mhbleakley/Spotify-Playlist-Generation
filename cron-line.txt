@@ -1,0 +1,1 @@
+0 */12 * * * cd /home/debian/Spotify && /home/debian/Spotify/cron.log 2>&1

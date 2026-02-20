@@ -12,9 +12,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 SCOPE = "user-library-read playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative"
-MONTHS_BACK = 12
-PLURAL = 's' if MONTHS_BACK > 1 else ''
-ROTATION_NAME = f"Rotation: Last {MONTHS_BACK} Month{PLURAL}"
 
 def init_spotify_client():
     return Spotify(auth_manager=SpotifyOAuth(
@@ -109,7 +106,7 @@ def main():
 
     now = datetime.now(UTC)
     year_windows = []
-    for i in range(3):   # number of years you want, adjust as needed
+    for i in range(3):
         end = now - timedelta(days=365 * i)
         start = now - timedelta(days=365 * (i + 1))
         year_windows.append((start, end))
